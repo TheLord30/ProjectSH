@@ -33,7 +33,18 @@ SH.on("ready", message => {
   }
   setInterval(() => {update();}, 7000); 
 })
-
+var embed = new Discord.MessageEmbed()
+.setTitle("Project Life Israel Registration")
+.setColor("#19b636")
+.setThumbnail("https://cdn.discordapp.com/attachments/561237955608313859/725708531340148766/WU4YYqQh_400x400.jpg")
+.addField("instructions", "Hey and welcome to project life israel offical\n Before you can start play and enjoy our server you need to fill a short application So we can get more information about your character and about yourself\n[Click here for the application](https://form.jotform.com/201653059131447)\n After you fill a application one of our support team will contact you!")
+.addField("\u200B", "\u200B")
+.setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
+SH.on("message", message => {
+  if (message.content == "!register") {
+    message.author.send(embed)
+  }
+})
 
 
 
