@@ -44,7 +44,9 @@ var embed = new Discord.MessageEmbed()
 SH.on("message", message => {
   if (message.content == "!register") {
     if(message.member.roles.cache.some(role => role.name === 'BetaCivi')) return message.channel.send(`${message.author} **You cant use this command beacuse you are already whitelisted**`);
-    message.channel.send(`**Hey ${message.author} I Have sent you a  Direct Message with  the registration instructions👍**`)
+    message.channel.send(`**Hey ${message.author} I Have sent you a  Direct Message with  the registration instructions👍**`).then(msg => {
+      msg.delete(8000)
+    })
     message.author.send(embed)
   }
 })
@@ -59,7 +61,9 @@ var embed1 = new Discord.MessageEmbed()
 SH.on("message", message => {
   if (message.content == "!mods") {
     if(message.member.roles.cache.some(role => role.name === 'player')) return message.channel.send(`${message.author} **You cant use this command beacuse you are Not whitelisted on this server Please use the !register command**`);
-    message.channel.send(`**Hey ${message.author} I have sent you a Direct Message with server mods instructions✅**`)
+    message.channel.send(`**Hey ${message.author} I have sent you a Direct Message with server mods instructions✅**`).then(msg => {
+      msg.delete(8000)
+    })
     message.author.send(embed1)
   }
 })
