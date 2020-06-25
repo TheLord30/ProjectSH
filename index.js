@@ -52,13 +52,14 @@ SH.on("message", message => {
 var embed1 = new Discord.MessageEmbed()
 .setTitle("Project Life Israel Registration")
 .setColor("#19b636")
+.setThumbnail("https://cdn.discordapp.com/attachments/561237955608313859/725708531340148766/WU4YYqQh_400x400.jpg")
 .addField("Server mods download instructions", "for full mods downlad instructions Check the link [Project Life Mods Tutorial](https://docs.google.com/document/d/1e2hXoUaEofBWakscztmARMzMn9YcARKcm_Cwo9-AlPo/edit?usp=drivesdk)")
 .setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
 
 SH.on("message", message => {
   if (message.content == "!mods") {
     if(message.member.roles.cache.some(role => role.name === 'player')) return message.channel.send(`${message.author} **You cant use this command beacuse you are Not whitelisted on this server Please use the !register command**`);
-    message.channel.send(`Hey ${message.author} I have sent you a Direct Message with server mods instructions✅`)
+    message.channel.send(`**Hey ${message.author} I have sent you a Direct Message with server mods instructions✅**`)
     message.author.send(embed1)
   }
 })
