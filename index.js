@@ -63,7 +63,85 @@ SH.on("message", message => {
     message.author.send(embed1)
   }
 })
-
+var embed = new Discord.MessageEmbed()
+.setTitle("Project Life Israel Report System")
+.setColor("#b86610")
+.setThumbnail("https://cdn.discordapp.com/attachments/561237955608313859/725708531340148766/WU4YYqQh_400x400.jpg")
+.addField(`**instructions**`, "**Please Provoide your report reason :** `LostItems`, `Bug`, `PlayerReport`")
+.addField("**Important!**", "**For Lost Items report type below: `!i`, For Bug Report type: `!b`, For Player Report type: `!p`**")
+.setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
+var embed1 = new Discord.MessageEmbed()
+.setTitle("Project Life Israel Report System")
+.setColor("#ff0000")
+.setThumbnail("https://cdn.discordapp.com/attachments/561237955608313859/725708531340148766/WU4YYqQh_400x400.jpg")
+.addField("**Lost Item Report**", "**Ok so it seems that you have lost some items**\n**so we can track after your lost items you need you to write us below what you have lost!**")
+.addField("**Example**", "**!lost <Your lost items>(Without the brackets)**")
+.setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
+var embed2 = new Discord.MessageEmbed()
+.setTitle("Project Life Israel Report System")
+.setColor("#2dd61d")
+.setThumbnail("https://cdn.discordapp.com/attachments/561237955608313859/725708531340148766/WU4YYqQh_400x400.jpg")
+.addField("**Thank You!**", "**Your Lost Items Report has been dispatched to our staff**\n**You will get answer in the next 78 hours**")
+.setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
+var embed3 = new Discord.MessageEmbed()
+.setTitle("Project Life Israel Report System")
+.setColor("#ff0000")
+.setThumbnail("https://cdn.discordapp.com/attachments/561237955608313859/725708531340148766/WU4YYqQh_400x400.jpg")
+.addField("Server/Self Bug Report", "**Ok It seems that you are Facing a Bug Problem**\n**In order to help us fix the bug you need to type us below the bug himself**")
+.addField("**Example!**", "**!bug <Your Bug report with details>(Without the brackets)**")
+.setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
+var embed4 = new Discord.MessageEmbed()
+.setTitle("Project Life Israel Report System")
+.setColor("#2dd61d")
+.setThumbnail("https://cdn.discordapp.com/attachments/561237955608313859/725708531340148766/WU4YYqQh_400x400.jpg")
+.addField("**Thank You!**", "**Your Bug Report has been dispatched to our staff**\n**You will get answer in the next 78 hours**")
+.setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
+var embed5 = new Discord.MessageEmbed()
+.setTitle("Project Life Israel Report System")
+.setColor("#ff0000")
+.setThumbnail("https://cdn.discordapp.com/attachments/561237955608313859/725708531340148766/WU4YYqQh_400x400.jpg")
+.addField("Player Report", "**Ok It seems that You want to complain about a Player**\n**In order to help us help you, you need to type about the player and why do you complain about him**")
+.addField("**Example!**", "**!player <Player name and the reason why you complain him> (Without the brackets)**")
+.setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
+var embed7 = new Discord.MessageEmbed()
+.setTitle("Project Life Israel Report System")
+.setColor("#2dd61d")
+.setThumbnail("https://cdn.discordapp.com/attachments/561237955608313859/725708531340148766/WU4YYqQh_400x400.jpg")
+.addField("**Thank You!**", "**Your Player Report has been dispatched to our staff**\n**You will get answer in the next 78 hours**")
+.setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
+SH.on("message", message => {
+  const args = message.content.slice(prefix.length).split(' ');
+  const command = args.shift().toLowerCase();
+  const ss = args.join(' ')
+  if (command == "report") {
+    message.channel.send(`>>> **Hello ${message.author} I have send you DM message about your report request!**`)
+    message.author.send(embed)
+  }
+  if (command == "i") {
+    message.author.send(embed1)
+  }
+  if (command == "lost") {
+    const ssr = SH.channels.cache.get('726146576430661704')
+    ssr.send(`>>> ** New Player report**\n**Player Name: ${message.author}**\n**Report Reason:** **Lost items**\n**Lost items:** **${ss}**`)
+    message.author.send(embed2)
+  }
+  if (command == "b") {
+    message.author.send(embed3)
+  }
+  if (command == "bug") {
+    const ssr = SH.channels.cache.get('726146576430661704')
+    ssr.send(`>>> ** New Player report**\n**Player Name: ${message.author}**\n**Report Reason:** **Bug Report**\n**Bug details:** **${ss}**`)
+    message.author.send(embed4)
+  }
+  if (command == "p") {
+    message.author.send(embed5)
+  }
+  if (command == "player") {
+    const ssr = SH.channels.cache.get('726146576430661704')
+    ssr.send(`>>> ** New Player report**\n**Player Name: ${message.author}**\n**Report Reason:** **Player Report**\n**Report Details:** **${ss}**`)
+    message.author.send(embed7)
+  }
+})
 
 
 SH.login(token)
