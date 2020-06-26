@@ -4,6 +4,7 @@ const token = process.env.token;
 const Gamedig = require('gamedig');
 var express = require('express');
 var app = express();
+const prefix = "!"
 
 app.set('port', (process.env.PORT || 5000));
 
