@@ -143,6 +143,20 @@ SH.on("message", message => {
     message.author.send(embed7)
   }
 })
-
+SH.on("message", message => {
+  const args = message.content.slice(prefix.length).split(' ');
+  const command = args.shift().toLowerCase();
+  const gta = args.join(" ")
+  var embed9 = new Discord.MessageEmbed()
+.setTitle("Official Staff Announce")
+.setColor("#22c517")
+.setThumbnail("https://cdn.discordapp.com/attachments/561237955608313859/725708531340148766/WU4YYqQh_400x400.jpg")
+.addField("__**Announce**__📡\n-------------", `**${gta}**`)
+.setTimestamp()
+  if (command == "say") {
+    message.delete({ timeout: 1 })
+    message.channel.send(embed9)
+  } 
+})
 
 SH.login(token)
