@@ -34,7 +34,7 @@ SH.on("ready", message => {
   }
   setInterval(() => {update();}, 7000); 
 })
-var embed = new Discord.MessageEmbed()
+var gh = new Discord.MessageEmbed()
 .setTitle("Project Life Israel Registration")
 .setColor("#19b636")
 .setThumbnail("https://cdn.discordapp.com/attachments/561237955608313859/725708531340148766/WU4YYqQh_400x400.jpg")
@@ -46,7 +46,7 @@ SH.on("message", message => {
   if (message.content == "!register") {
     if(message.member.roles.cache.some(role => role.name === 'BetaCivi')) return message.channel.send(`${message.author} **You cant use this command beacuse you are already whitelisted**`);
     message.channel.send(`**Hey ${message.author} I Have sent you a  Direct Message with  the registration instructions👍**`)
-    message.author.send(embed)
+    message.author.send(gh)
   }
 })
 
