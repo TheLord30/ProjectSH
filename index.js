@@ -191,10 +191,14 @@ var kil = new Discord.MessageEmbed()
   if (command == "verify") {
     if(message.member.roles.cache.some(role => role.name === 'BetaCivi')) return message.channel.send(`${message.author} **Error: You cant verify twice, You already verified**`);
     const role = message.guild.roles.cache.get('721691495245021184');
+    const player = message.guild.roles.cache.get('723936594909855864');
     const member = message.guild.members.cache.get(message.author.id);
     member.roles.add(role)
+    member.removeRole(player)
     message.author.send(grt)
-    message.channel.send(ghj)
+    message.channel.send(ghj).then(m => {
+      message.delete({timeout:7000})
+    })
     const ssr = SH.channels.cache.get('726928237061472266')
     ssr.send(kil)
   }
