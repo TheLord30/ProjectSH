@@ -196,7 +196,9 @@ var kil = new Discord.MessageEmbed()
     member.roles.remove(play)
     member.roles.add(role)
     message.author.send(grt)
-    message.channel.send(ghj)
+    message.channel.send(ghj).then(hg => {
+      hg.delete({timeout: 15000})
+    })    
     const ssr = SH.channels.cache.get('726928237061472266')
     ssr.send(kil)
   }
