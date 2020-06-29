@@ -158,5 +158,57 @@ SH.on("message", message => {
     message.channel.send(embed9)
   } 
 })
+SH.on("message", async message => {
+  const args = message.content.slice(prefix.length).split(' ');
+  const command = args.shift().toLowerCase();
+  const rss = makeid(20)
+  var today = new Date();
+  const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  var grt = new Discord.MessageEmbed()
+.setTitle("**Account verification success✅**")
+.setColor("#22c517")
+.addField(`Verification`, `**Hello ${message.author.username}**\n**Here is your verification Token :** **__${rss}__**\n**Remember to save your verification Token**`)
+.setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
+var ghj = new Discord.MessageEmbed()
+.setTitle("**Account verification📄**")
+.setColor("#22c517")
+.addField("**success✅**", "**You have been verified on our server!, I have sent you verification token remember to save it!**")
+.setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
+var kil = new Discord.MessageEmbed()
+.setTitle("**New Account Has been verified✅**")
+.setColor("#22c517")
+.addField(`**Account Username:**`, `**${message.author.username}**`)
+.addField("**Account Created At:**", `**${message.author.createdAt}**`)
+.addField("**Bot Account?**", `**${message.author.bot}**`)
+.addField("**Discriminator**", `**${message.author.discriminator}**`)
+.addField("**Client ID**", `**${message.author.id}**`)
+.addField("**Activation Token**", `**${rss}**`)
+.addField("**Verification data**", date)
+.addField("**Verification Time**", time)
+.setFooter("All rights reserved Project Life Israel | coded by IDF.Predator")
+
+  if (command == "verify") {
+    if(message.member.roles.cache.some(role => role.name === 'BetaCivi')) return message.channel.send(`${message.author} **Error: You cant verify twice, You already verified**`);
+    const role = message.guild.roles.cache.get('721691495245021184');
+    const member = message.guild.members.cache.get(message.author.id);
+    member.roles.add(role)
+    message.author.send(grt)
+    message.channel.send(ghj)
+    const ssr = SH.channels.cache.get('726928237061472266')
+    ssr.send(kil)
+  }
+})
+
+
+function makeid(length) {
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
 
 SH.login(token)
