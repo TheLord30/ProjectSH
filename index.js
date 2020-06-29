@@ -193,6 +193,7 @@ var kil = new Discord.MessageEmbed()
     const role = message.guild.roles.cache.get('721691495245021184');
     const play = message.guild.roles.cache.get('723936594909855864');
     const member = message.guild.members.cache.get(message.author.id);
+    message.delete({timeout: 1000})
     member.roles.remove(play)
     member.roles.add(role)
     message.author.send(grt)
